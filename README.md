@@ -6,9 +6,9 @@ This repository contains the frontend logic for the password manager application
 
 ### Technologies
 
-- **React:**
-- **TypeScript:**
-- **Tailwind CSS:**
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
 
 ### Features
 
@@ -16,3 +16,17 @@ This repository contains the frontend logic for the password manager application
 - Secure password storage and retrieval
 - Credit card management
 - Item management (passwords, usernames, notes, categories)
+
+### Initialization Steps
+
+1. Install dependencies
+
+   ```bash
+   npm install
+   ```
+2. Start client server
+
+   ```bash
+   npm run dev
+   ```
+
