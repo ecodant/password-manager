@@ -3,7 +3,9 @@ import { UserModel } from './lib/types';
 import LoggedView from './pages/LoggedView';
 import { Toaster } from '@/components/ui/toaster';
 import { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import * as UserService from './services/userService';
+import PageNotFound from './pages/PageNotFound';
 function App() {
   const [loggedInUser, setLoggedInUser] = useState<UserModel | null>(null);
 
@@ -21,14 +23,32 @@ function App() {
 
   return (
     <>
-      {!loggedInUser ? (
-        <HomePage onLoginSucessful={setLoggedInUser}></HomePage>
-      ) : (
-        <LoggedView
-          loggedUser={loggedInUser}
-          setLoggedInUser={setLoggedInUser}
-        />
-      )}
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/home"
+            element={
+              !loggedInUser ? (
+                <HomePage onLoginSucessful={setLoggedInUser}></HomePage>
+              ) : (
+                <LoggedView
+                  loggedUser={loggedInUser}
+                  setLoggedInUser={setLoggedInUser}
+                />
+              )
+            }
+          />
+          <Route path="/*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+      {/* {!loggedInUser ? ( */}
+      {/*   <HomePage onLoginSucessful={setLoggedInUser}></HomePage> */}
+      {/* ) : ( */}
+      {/*   <LoggedView */}
+      {/*     loggedUser={loggedInUser} */}
+      {/*     setLoggedInUser={setLoggedInUser} */}
+      {/*   /> */}
+      {/* )} */}
       <Toaster />
     </>
   );
