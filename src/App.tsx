@@ -41,14 +41,7 @@ function App() {
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
-      {/* {!loggedInUser ? ( */}
-      {/*   <HomePage onLoginSucessful={setLoggedInUser}></HomePage> */}
-      {/* ) : ( */}
-      {/*   <LoggedView */}
-      {/*     loggedUser={loggedInUser} */}
-      {/*     setLoggedInUser={setLoggedInUser} */}
-      {/*   /> */}
-      {/* )} */}
+
       <Toaster />
     </>
   );
